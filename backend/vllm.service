@@ -1,0 +1,12 @@
+[Unit]
+Description=vllm
+
+[Service]
+WorkingDirectory=/root/py1
+ExecStart=/root/py1/bin/python -m vllm.entrypoints.openai.api_server --model /opt/models/casperhansen/mixtral-instruct-awq --tensor-parallel-size 2
+SyslogIdentifier=vllm
+
+User=root
+
+[Install]
+WantedBy=multi-user.target
