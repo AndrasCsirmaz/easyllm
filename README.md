@@ -2,4 +2,4 @@
 
 ## 
 
-!(forontend/wwwroot/img/sample1.png)
+!(frontend/wwwroot/img/sample1.png)
