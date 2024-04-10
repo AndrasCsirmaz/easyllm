@@ -1,4 +1,4 @@
-# Backend
+# Frontend
 
 ## Warning
 
@@ -8,6 +8,22 @@ The two important files are
 
 - Controllers/LlmController.cs
 - Views/Home/Index.cshtml
+
+## /opt/wwwtest/www1/appsettings.json
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*", "Urls": "http://*:80"
+
+}
+
+```
 
 ## Install as Service
 
