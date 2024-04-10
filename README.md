@@ -2,4 +2,4 @@
 
 ## 
 
-!(frontend/wwwroot/img/sample1.png)
+![It should look like that](frontend/wwwroot/img/sample1.png)
