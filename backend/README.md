@@ -34,9 +34,13 @@ bin/pip install vllm
 In our example the vllm model is in the location: /opt/models/casperhansen/mixtral-instruct-awq
 
 run vllm
+
 > ./bin/python -m vllm.entrypoints.openai.api_server --model /opt/models/casperhansen/mixtral-instruct-awq
+
 or
+
 > ./bin/python -m vllm.entrypoints.openai.api_server --model /opt/models/casperhansen/mixtral-instruct-awq --tensor-parallel-size 2
+
 if you have 2 GPU cards installed
 
 ![GPU status](nvidia-smi.png)
