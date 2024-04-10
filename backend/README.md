@@ -1,5 +1,5 @@
 # Backend
-## Vorbereitung
+## Preparation
 Install CUDA driver
 ```
 apt update
@@ -44,3 +44,35 @@ or
 if you have 2 GPU cards installed
 
 ![GPU status](nvidia-smi.png)
+
+## Install as service
+Edit the file : /etc/systemd/system/vllm.service
+```
+[Unit]
+Description=vllm
+
+[Service]
+WorkingDirectory=/root/py1
+ExecStartPre=/usr/bin/sleep 30
+ExecStart=/root/py1/bin/python -m vllm.entrypoints.openai.api_server --model /opt/models/casperhansen/mixtral-instruct-awq --tensor-parallel-size 2
+SyslogIdentifier=vllm
+
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+Please note
+- the delayed execution because without this delay sometimes after server restart the service could not start
+- the current hardware has 2 installed GPU cards
+
+The service should start after the server restarts 
+
+> systemctl enable vllm.service
+
+Useful commands for controlling the service
+```
+systemctl status vllm.service
+systemctl start vllm.service
+systemctl stop vllm.service
+```
