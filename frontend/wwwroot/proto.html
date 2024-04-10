@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>*** Prototype ***</title>
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <style>
+        .bb {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form method="post" enctype="multipart/form-data" action="/">
+        <p class="rrr">Benutzername <input type="text" id="username" name="username"/></p>
+        <p>Passwort <input type="text" id="password" name="password"/></p>
+        <p><input type="submit" title="Anmelden"/></p>
+    </form>
+    <!--<p>HttpContext.Session.Id</p>-->
+</div>
+
+<div style="width: 480px">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="col">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4">Welcome!</h1>
+                    </div>
+                    <div class="spinner-border" role="status" style="visibility: hidden">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="text-center">
+                        <!--<form>-->
+                        <input type="hidden" name="qx" value="q1"/>
+                        <p>Frage <input type="text" width="640" height="220" id="query" name="query"/></p>
+                        <!--<p><input type="submit" title="Fragen"/></p>-->
+                        <p><button class="btn btn-primary btn-user btn-block" onclick="sendclick('/llm');">fragen</button></p>
+                        <!--</form>-->
+                        <div id="llmid"></div>
+                        <div id="responsediv"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Outer Row -->
+<div style="width: 480px">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="col">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4">Welcome!</h1>
+                    </div>
+                    <form class="user" method="post" action="/">
+                        <div class="form-group">
+                            <input type="text" name="uuu" class="form-control form-control-user"
+                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                   placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="ppp" class="form-control form-control-user"
+                                   id="exampleInputPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user"
+                                   id="exampleInputInvitatiom" placeholder="Einladungscode">
+                        </div>
+                        <a href="/" class="btn btn-primary btn-user btn-block">
+                            Enter
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

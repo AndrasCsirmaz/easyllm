@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="col">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4">Frage!</h1>
+                    </div>
+                    <div class="text-center">
+                        <input type="hidden" name="qx" value="q1"/>
+                        <div class="form-outline">
+                            <textarea class="form-control" id="query" rows="8"></textarea>
+                            <div class="bb">
+                                <input id="kione" name="ki-select" type="radio" class="xform-check-input"><label class="form-check-label" for="kione">KI-One</label>
+                                <input id="kitwo" name="ki-select" type="radio" class="xform-check-input"><label class="form-check-label" for="kitwo">KI-Two</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-user btn-block bb" onclick="sendclick('/llm');">Senden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary" id="q-response-head">Antwort (<span id="llmid"></span>)</h6>
+    </div>
+    <div class="card-body p-2">
+        <div class="col">
+        <div class="spinner-border" role="status" id="q-spinner"> </div>
+        <div id="responsediv"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+$( document ).ready(function() {
+    $('#q-spinner').hide();
+});
+
+function sendclick(apiurl){
+    
+    const queryparams = {
+        query:$('#query').val(),
+        kione:$('#kione').is(':checked'),
+        kitwo:$('#kitwo').is(':checked')
+    };
+    $('#llmid').html('...');
+    $('#responsediv').html('Warte auf antwort ...');
+    $('#q-spinner').show();
+    $.ajax(apiurl, {
+        data : JSON.stringify(queryparams),
+        //contentType : 'application/json',
+        contentType : "multipart/form-data",
+        type : 'POST',
+        success: function(html){
+            //$('#responsediv').html('<p>'+html.yourquery+'</p><p>'+html.response.content+'</p>');
+            $('#llmid').html(html.r.llmid);
+            $('#responsediv').html('<p>' + html.r.llmmessage + '</p>');
+            $('#q-spinner').hide();
+          },
+          error: function (xhr, ajaxOptions, thrownError){
+            $('#llmid').html('Fehler');
+            $('#responsediv').html('<p>' + '&nbsp;' + '</p>');
+            $('#q-spinner').hide();
+          }
+    });
+    
+    
+    
+    return false;
+    // $.get("http://kione:8000/v1/models", function (data){
+    //     alert(data.data[0].id);
+    // });
+    //alert($("#userinput").val());
+}
+
+</script>

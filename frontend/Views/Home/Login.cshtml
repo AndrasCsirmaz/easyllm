@@ -1,0 +1,60 @@
+﻿@page
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <style>
+            .bb {
+                margin: 15px;
+            }
+        </style>
+</head>
+<body>
+
+
+<div style="width: 480px">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="col">
+                <div class="p-5">
+                    <div class="text-center">
+                        <img src="/img/ki-one-a.png" width="120px"/>
+                    </div>
+                    <div class="text-center">
+                        <h1 class="h4">Anmeldung!</h1>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" action="/">
+                        <div class="form-group bb">
+                            <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="Benutzername">
+                        </div>
+                        <div class="form-group bb">
+                            <input type="text" name="password" class="form-control form-control-user" id="password" placeholder="Passwort">
+                        </div>
+                        <div><input type="submit" value="Anmelden" class="btn btn-primary btn-user btn-block bb"/></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <!--
+    <form method="post" enctype="multipart/form-data" action="/">
+        <p>Benutzername <input type="text" id="username" name="username"/></p>
+        <p>Passwort <input type="text" id="password" name="password"/></p>
+        <p><input type="submit" title="Anmelden"/></p>
+    </form>
+    -->
+    <!--<p>HttpContext.Session.Id</p>-->
+</div>
+</body>
+</html>
