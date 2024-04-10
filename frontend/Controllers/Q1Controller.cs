@@ -24,7 +24,7 @@ public class Q1Controller : Controller
 
             {
                 var wc = new WebClient();
-                string x = wc.DownloadString("http://t1.vs841.de:8888/query");
+                string x = wc.DownloadString("http://sample.de:8888/query");
                 var y = JsonConvert.DeserializeObject<Api8888>(x);
                 var z = wc.DownloadString($"http://{y.rip}:8000/v1/models");
                 var m = JsonConvert.DeserializeObject<V1ModelsResponse>(z);
