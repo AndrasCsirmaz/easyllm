@@ -1,5 +1,6 @@
 # Completition
 
+## Sample with curl
 
 Request
 
@@ -64,3 +65,7 @@ Apr 11 19:21:39 kitwo vllm[1356]: INFO 04-11 19:21:39 metrics.py:218] Avg prompt
 Apr 11 19:21:43 kitwo vllm[1356]: INFO 04-11 19:21:43 async_llm_engine.py:120] Finished request cmpl-81abe7cfa0cc42a696c703368ba37734.
 Apr 11 19:21:43 kitwo vllm[1356]: INFO:     ::1:36100 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 ```
+
+## Sample with RESTEd browser-plugin 
+
+![What is a house?](rested1.png)
